@@ -1,75 +1,43 @@
-# React + TypeScript + Vite
+# React Lab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一個基於 **TypeScript + React + Vite** 建置的練習專案，旨在透過實作各種常見前端情境與互動元件，磨練 React 的狀態管理、Hook 運用與邏輯思維。
 
-Currently, two official plugins are available:
+### 🛠️ 技術棧 (Tech Stack)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **框架 / 核心**：[React 18](https://react.dev/)
+* **語言**：[TypeScript](https://www.typescript.org/)
+* **構建工具**：[Vite](https://vitejs.dev/)
 
-## React Compiler
+### 🎯 練習重點 (Focus Areas)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+本專案主要用於練習以下 React 邏輯：
 
-## Expanding the ESLint configuration
+* **State Management**：`useState`, `useReducer` 的狀態設計與複雜邏輯拆解
+* **Side Effects & Lifecycle**：`useEffect` 的觸發時機控管與資源清理 (Clean-up)
+* **Performance Optimization**：`useMemo`, `useCallback` 與 `React.memo` 的使用時機
+* **Custom Hooks**：抽象化重複邏輯並提煉為可複用的自訂 Hook
+* **Type Safety**：使用 TypeScript 嚴格定義 Component Props, Event 與 State 型別
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🚀 快速開始 (Getting Started)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+  # 安裝 node
+  brew install node
+  # 確認 npm 套件管理確實安裝
+  npm -v
+  # 開啟測試伺服器
+  npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 📁 專案結構 (Project Structure)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```
+src/
+├── assets/          # 靜態資源 (圖片、圖示等)
+├── components/      # UI 元件與練習情境
+├── hooks/           # 自訂 Custom Hooks
+├── types/           # TypeScript 型別定義
+├── utils/           # 通用 Utility functions
+├── App.tsx          # 主頁面 / 練習展示入口
+└── main.tsx         # 應用程式進入點
 ```
