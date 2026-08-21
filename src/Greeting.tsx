@@ -1,8 +1,10 @@
-interface GreetingType {
+import type { FC } from "react";
+
+interface GreetingProps {
     name: string;
 }
 
-function Greeting({ name }: GreetingType) {
+const Greeting: FC<GreetingProps> = ({ name }) => {
     return (
         <h2>Welcome, {name}!</h2>
     );

@@ -1,6 +1,7 @@
+import type { FC } from "react";
 import Greeting from './Greeting'
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
       <h1>Hello, React!</h1>
