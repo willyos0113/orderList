@@ -1,10 +1,6 @@
 import { type FC } from "react";
+import type { BlogItem } from "./types/common";
 
-interface BlogItem {
-  id: number;
-  title: string;
-  author: string;
-}
 interface BlogListProps {
   blogs: BlogItem[];
 }
