@@ -13,15 +13,15 @@ const App: FC = () => {
       .then((res) => {
         return res.json();
       })
-      .then((data) => {
+      .then((data: BlogItem[]) => {
         setTimeout(() => {
           setBlogs(data);
           setLoading(false);
         }, 1000);
       })
-      .catch((err) => {
+      .catch((err: unknown) => {
         setLoading(false);
-        setError(err.message);
+        setError(err instanceof Error ? err.message : String(err));
       });
   }, []);
 
