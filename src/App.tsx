@@ -1,17 +1,21 @@
 import { type FC } from "react";
 import "./App.css";
 import BlogList from "./BlogList";
-import useFetch from "./useFetch";
+import About from "./About";
+import Navbar from "./Navbar";
+import { BrowserRouter as Routers, Routes, Route } from "react-router-dom";
 
 const App: FC = () => {
-  const { blogs, loading, error } = useFetch("http://localhost:8080/blogs");
-
   return (
-    <div className="App">
-      {loading && <div>資料載入中...</div>}
-      {error && <div>錯誤: {error}</div>}
-      <BlogList blogs={blogs} />
-    </div>
+    <Routers>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<BlogList />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Routers>
   );
 };
 

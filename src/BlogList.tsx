@@ -1,13 +1,13 @@
 import { type FC } from "react";
-import type { BlogItem } from "./types/common";
+import useFetch from "./useFetch";
 
-interface BlogListProps {
-  blogs: BlogItem[];
-}
+const BlogList: FC = () => {
+  const { blogs, loading, error } = useFetch("http://localhost:8080/blogs");
 
-const BlogList: FC<BlogListProps> = ({ blogs }) => {
   return (
-    <div>
+    <div className="blog-list">
+      {loading && <div>資料載入中...</div>}
+      {error && <div>錯誤: {error}</div>}
       {blogs.map((blog) => (
         <div key={blog.id}>
           <h2>{blog.title}</h2>

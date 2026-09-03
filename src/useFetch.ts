@@ -15,13 +15,13 @@ const useFetch = (url: string) => {
         setTimeout(() => {
           setBlogs(data);
           setLoading(false);
-        }, 1000);
+        }, 500);
       })
       .catch((err: unknown) => {
         setLoading(false);
         setError(err instanceof Error ? err.message : String(err));
       });
-  }, []);
+  }, [url]);
 
   return { blogs, loading, error };
 };
