@@ -10,6 +10,15 @@ const BlogList: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newBlog = { title, author };
+    fetch("http://localhost:8080/blogs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newBlog),
+    }).then(() => {
+      console.log("新增 blog: ", newBlog);
+    });
   };
 
   return (
@@ -23,18 +32,21 @@ const BlogList: FC = () => {
         </div>
       ))}
       <form onSubmit={handleSubmit}>
+        <label htmlFor="title">標題: </label>
         <input
           type="text"
-          placeholder="標題"
+          required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <label htmlFor="author">作者: </label>
         <input
           type="text"
-          placeholder="作者"
+          required
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
+        <button type="submit">確認</button>
       </form>
     </div>
   );
